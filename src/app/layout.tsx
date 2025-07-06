@@ -4,6 +4,8 @@ import { type Metadata } from "next";
 import { antic, chivo } from "@/styles/fonts";
 import Navbar from "@/components/Navbar";
 import type { NavbarProps } from "@/types";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
 
 const navbarProps: NavbarProps = {
   title: {
-    label: "Reverb",
+    label: "REVERB",
     href: "/",
   },
   styling: {
@@ -45,10 +47,6 @@ const navbarProps: NavbarProps = {
       label: "Dashboard",
       href: "/dashboard",
     },
-    {
-      label: "Sign In",
-      href: "/sign-in",
-    },
   ],
   includeSocials: {
     github: true,
@@ -60,15 +58,35 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${chivo.variable}`}>
-      <body>
-        <div
-          className={`${chivo.className} min-h-screen bg-gradient-to-b from-[#191414] via-black to-[#121212] text-white`}
-        >
-          <Navbar {...navbarProps} />
-          {children}
-        </div>
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+        layout: {
+          socialButtonsPlacement: "bottom",
+        },
+        variables: {
+          colorPrimary: "#22c55e",
+          colorText: "white",
+          colorTextOnPrimaryBackground: "black",
+          colorTextSecondary: "#94a3b8",
+          colorBackground: "#09090b",
+          fontFamily: "chivo",
+          //note: need to change the fonts a bit
+          // fontFamilyButtons: "antic",
+          borderRadius: "0.5rem",
+        },
+      }}
+    >
+      <html lang="en" className={`${chivo.variable}`}>
+        <body>
+          <div
+            className={`${chivo.className} min-h-screen bg-gradient-to-b from-[#191414] via-black to-[#121212] text-white`}
+          >
+            <Navbar {...navbarProps} />
+            {children}
+          </div>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

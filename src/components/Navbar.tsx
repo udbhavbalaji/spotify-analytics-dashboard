@@ -10,6 +10,7 @@ import {
   FaInstagram,
   FaXTwitter,
 } from "react-icons/fa6";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 export const Navbar = (props: NavbarProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -41,6 +42,16 @@ export const Navbar = (props: NavbarProps) => {
                   {item.label}
                 </Link>
               ))}
+
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <span
+                    className={`${props.styling.item.font ?? ""} mt-2 transition-colors duration-200 ${props.styling.item.text} ${props.styling.item.hover} cursor-pointer`}
+                  >
+                    Sign In
+                  </span>
+                </SignInButton>
+              </SignedOut>
 
               {props.includeSocials && (
                 <ul
@@ -101,6 +112,12 @@ export const Navbar = (props: NavbarProps) => {
                         </Link>
                       </div>
                     )}
+
+                    <SignedIn>
+                      <div className="ml-5 inline-flex h-6 w-6 rounded-full">
+                        <UserButton />
+                      </div>
+                    </SignedIn>
                   </li>
                 </ul>
               )}
@@ -177,6 +194,25 @@ export const Navbar = (props: NavbarProps) => {
                 </Link>
               ))}
 
+              {/*<SignedOut>
+                <Link
+                  href="/sign-in"
+                  className={`${props.styling.item.font ?? ""} mt-2 transition-colors duration-200 ${props.styling.item.text} ${props.styling.item.hover}`}
+                >
+                  Sign In
+                </Link>
+              </SignedOut>*/}
+
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <span
+                    className={`text-lg ${props.styling.item.text} transition-colors duration-200 ${props.styling.item.hover} cursor-pointer`}
+                  >
+                    Sign In
+                  </span>
+                </SignInButton>
+              </SignedOut>
+
               {props.includeSocials && (
                 <ul className="text-md absolute bottom-5 inline-flex font-medium">
                   <li className="my-1 ml-8 w-full justify-between gap-4">
@@ -234,6 +270,12 @@ export const Navbar = (props: NavbarProps) => {
                         </Link>
                       </div>
                     )}
+
+                    <SignedIn>
+                      <div className="ml-5 inline-flex h-6 w-6 rounded-full">
+                        <UserButton />
+                      </div>
+                    </SignedIn>
                   </li>
                 </ul>
               )}
