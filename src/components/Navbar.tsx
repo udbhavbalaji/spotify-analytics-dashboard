@@ -9,6 +9,7 @@ import {
   FaGithub,
   FaInstagram,
   FaXTwitter,
+  FaSquareFacebook,
 } from "react-icons/fa6";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
@@ -113,6 +114,17 @@ export const Navbar = (props: NavbarProps) => {
                       </div>
                     )}
 
+                    {props.includeSocials.facebook && (
+                      <div className="ml-5 inline-flex h-6 w-6 rounded-full">
+                        <Link
+                          href=""
+                          className={`rounded-full text-2xl transition-colors duration-200 ${props.styling.icon.hover}`}
+                        >
+                          <FaSquareFacebook />
+                        </Link>
+                      </div>
+                    )}
+
                     <SignedIn>
                       <div className="ml-5 inline-flex h-6 w-6 rounded-full">
                         <UserButton />
@@ -125,7 +137,7 @@ export const Navbar = (props: NavbarProps) => {
 
             {/* Mobile Menu Button */}
             <button
-              className={`transition-colors duration-200 ${props.styling.icon.text} ${props.styling.icon.hover} md:hidden`}
+              className={`transition-colors duration-200 ${props.styling.icon.text} ${props.styling.icon.hover} cursor-pointer md:hidden`}
               onClick={toggleSidebarVisbility}
               aria-label="Toggle menu"
             >
@@ -163,7 +175,7 @@ export const Navbar = (props: NavbarProps) => {
         >
           {/* Close Button */}
           <button
-            className={`absolute top-4 right-4 transition-colors duration-200 ${props.styling.icon.text} ${props.styling.icon.hover ?? ""}`}
+            className={`absolute top-4 right-4 transition-colors duration-200 ${props.styling.icon.text} ${props.styling.icon.hover ?? ""} cursor-pointer`}
             onClick={toggleSidebarVisbility}
             aria-label="Close menu"
           >
@@ -267,6 +279,17 @@ export const Navbar = (props: NavbarProps) => {
                           className={`rounded-full text-2xl transition-colors duration-200 ${props.styling.icon.text} ${props.styling.icon.hover}`}
                         >
                           <FaXTwitter />
+                        </Link>
+                      </div>
+                    )}
+
+                    {props.includeSocials.facebook && (
+                      <div className="ml-5 inline-flex h-6 w-6 rounded-full">
+                        <Link
+                          href=""
+                          className={`rounded-full text-2xl transition-colors duration-200 ${props.styling.icon.hover}`}
+                        >
+                          <FaSquareFacebook />
                         </Link>
                       </div>
                     )}

@@ -49,8 +49,8 @@ const navbarProps: NavbarProps = {
     },
   ],
   includeSocials: {
-    github: true,
-    linkedin: true,
+    github: "https://github.com/udbhavbalaji",
+    linkedin: "https://linkedin.com/in/udbhav-balaji",
   },
 };
 

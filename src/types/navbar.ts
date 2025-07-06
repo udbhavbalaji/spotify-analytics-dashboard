@@ -1,3 +1,5 @@
+import type { NextFont } from "next/dist/compiled/@next/font";
+
 type SocialPlatforms =
   | "linkedin"
   | "email"
@@ -18,7 +20,7 @@ export interface NavbarProps {
     bg: string;
   };
   navItems: NavbarItem[];
-  includeSocials: Partial<Record<SocialPlatforms, boolean>>;
+  includeSocials: Partial<Record<SocialPlatforms, string>>;
 }
 
 export type NavbarItem = {
@@ -30,5 +32,5 @@ export type NavbarItem = {
 type TextStyling = {
   text: string;
   hover?: string;
-  font?: string;
+  font?: NextFont["className"];
 };
