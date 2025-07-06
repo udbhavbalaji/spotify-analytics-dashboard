@@ -16,18 +16,6 @@ export const Navbar = (props: NavbarProps) => {
 
   const toggleSidebarVisbility = () => setIsSidebarOpen(!isSidebarOpen);
 
-  // const Link =
-  //   props.LinkComponent ??
-  //   (({ children, className, href, ...linkProps }) => (
-  //     <a
-  //       href={href}
-  //       className={`sm:text-md text-xl transition-colors duration-200 md:text-lg ${linkProps.linkType === "title" ? `${props.styling.title.font ?? "font-sans"}` : `${props.styling.item.font ?? "font-sans"}`} ${linkProps.linkType === "title" ? `${props.styling.title.primary}` : linkProps.linkType === "item" ? `${props.styling.item.primary}` : `${props.styling.icon.primary}`} ${linkProps.linkType === "title" ? `${props.styling.title.secondary ?? ""}` : linkProps.linkType === "item" ? `${props.styling.item.secondary ?? ""}` : `${props.styling.icon.secondary ?? ""}`} ${className}`}
-  //       {...linkProps}
-  //     >
-  //       {children}
-  //     </a>
-  //   ));
-
   return (
     <>
       {/* Main Navbar */}
