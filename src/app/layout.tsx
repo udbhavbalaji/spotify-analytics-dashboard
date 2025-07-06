@@ -1,7 +1,9 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { Geist } from "next/font/google";
+import { antic, chivo } from "@/styles/fonts";
+import Navbar from "@/components/Navbar";
+import type { NavbarProps } from "@/types";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -9,17 +11,64 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
+const navbarProps: NavbarProps = {
+  title: {
+    label: "Reverb",
+    href: "/",
+  },
+  styling: {
+    title: {
+      text: "text-green-500",
+      hover: "hover:text-white",
+      font: antic.className,
+    },
+    bg: "bg-inherit",
+    item: {
+      text: "text-zinc-300",
+      hover: "hover:text-white",
+    },
+    icon: {
+      text: "text-zinc-300",
+      hover: "hover:text-white",
+    },
+  },
+  navItems: [
+    {
+      label: "Features",
+      href: "#features",
+    },
+    {
+      label: "About",
+      href: "#about",
+    },
+    {
+      label: "Dashboard",
+      href: "/dashboard",
+    },
+    {
+      label: "Sign In",
+      href: "/sign-in",
+    },
+  ],
+  includeSocials: {
+    github: true,
+    linkedin: true,
+  },
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${chivo.variable}`}>
+      <body>
+        <div
+          className={`${chivo.className} min-h-screen bg-gradient-to-b from-[#191414] via-black to-[#121212] text-white`}
+        >
+          <Navbar {...navbarProps} />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
