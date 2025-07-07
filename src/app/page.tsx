@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BlockButton from "@/components/ui/Button";
 
 export default function HomePage() {
   return (
@@ -13,12 +13,8 @@ export default function HomePage() {
           artists, and unlock insights powered by audio features and machine
           learning.
         </p>
-        <Link
-          href="/sign-up"
-          className="rounded-full bg-green-500 px-6 py-3 text-lg font-medium text-black transition hover:bg-green-400"
-        >
-          Get Started
-        </Link>
+
+        <BlockButton href="/sign-up">Get Started</BlockButton>
       </main>
 
       {/* Footer */}

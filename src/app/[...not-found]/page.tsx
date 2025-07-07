@@ -1,4 +1,4 @@
-import Link from "next/link";
+import UnwrappedOutlineButton from "@/components/UnwrappedOutlineButton";
 
 export default function NotFoundPage() {
   return (
@@ -9,12 +9,7 @@ export default function NotFoundPage() {
       <p className="mt-4 mb-10 text-lg text-gray-300 sm:text-xl">
         Sorry, the page you’re looking for doesn’t exist.
       </p>
-      <Link
-        href="/"
-        className="rounded-full bg-green-500 px-6 py-3 text-lg font-medium text-black transition hover:bg-green-400"
-      >
-        Go Back Home
-      </Link>
+      <UnwrappedOutlineButton href="/">Go Back Home</UnwrappedOutlineButton>
     </div>
   );
 }
