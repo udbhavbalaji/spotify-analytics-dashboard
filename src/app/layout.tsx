@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import { type Metadata } from "next";
 import { antic, chivo } from "@/styles/fonts";
-import Navbar from "@/components/Navbar";
+import UnwrappedNavbar from "@/components/Navbar";
 import type { NavbarProps } from "@/types";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
@@ -82,7 +82,7 @@ export default function RootLayout({
           <div
             className={`${chivo.className} min-h-screen bg-gradient-to-b from-[#191414] via-black to-[#121212] text-white`}
           >
-            <Navbar {...navbarProps} />
+            <UnwrappedNavbar />
             {children}
           </div>
         </body>
